@@ -2,8 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+.Rprofile
 formd
 formd-unzipped
 *.duckdb*
 *.wal
 *.tmp/
+*.html
