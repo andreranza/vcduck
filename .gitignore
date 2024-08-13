@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+formd
+formd-unzipped
+*.duckdb*
+*.wal
+*.tmp/
