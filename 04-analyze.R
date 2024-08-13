@@ -1,5 +1,6 @@
 # Analyze ----------------------------------------------------------------------
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(DBI)
 library(duckdb)
 library(dm)
@@ -20,16 +21,16 @@ filing_date_ym <-
   rename_with(tolower) |>
   mutate(
     date_long = if_else(
-      str_length(filing_date) > 11L,
+      stringr::str_length(filing_date) > 11L,
       filing_date,
       NA_character_
     ),
-    date_long = str_sub(date_long, 1L, 10L),
+    date_long = stringr::str_sub(date_long, 1L, 10L),
     date_long = sql("CAST(date_long AS DATE)")
   ) |>
   mutate(
     date_short = if_else(
-      str_length(filing_date) <= 11L,
+      stringr::str_length(filing_date) <= 11L,
       filing_date,
       NA_character_
     )
